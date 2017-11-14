@@ -4,13 +4,13 @@
 Given repository contains project source code.
 
 ## About
-The core of the project is a general API ([see API documentation](###API-DOCUMENTATION)), created using Node.js and Express. MySql database is used to store data on server. The main service is hosted on --. 
+The core of the project is a general API ([see API documentation](###API-DOCUMENTATION)), created using Node.js and Express. MySql database is used to store data on server. The main service is hosted on --.
 
 ## Database design
 The database is stored in a MySQL server. The following descirbed database schema.
 i. People
   Name ... Fill in
-  
+
 
 ## API Documentation
 
@@ -21,25 +21,23 @@ Fill this in. I tried, but I have no idea. Can be generous here, simple to add q
 1. Inventory
 
   a. Search
-  
+
   b. Add
-  
+
   c. Get
-  
+a
 3. Borrowers
 
   a. List
-  
+
   b. Search
-  
+
   c. List deadline extended
-  
+
 4. Damaged?
 
 2. Retailers
 
   a. Search
-  
+
   b. Add
-  
-  
