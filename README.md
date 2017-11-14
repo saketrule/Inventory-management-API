@@ -12,4 +12,6 @@ The core of the project is a general API ([see API documentation](###API-DOCUMEN
 A
 ## Installation and use
 
-###API DOCUMENTATION
+## Database design
+
+## API Documentation
