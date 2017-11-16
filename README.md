@@ -16,7 +16,6 @@ i. People
 
 API can be accessed from `https://host.com/api`. Data is sent and received in JSON format.
 
-Fill this in. I tried, but I have no idea. Can be generous here, simple to add queries. I'll create the API and the SQL queries then.
 
 1. Users
 id pk
@@ -66,3 +65,31 @@ Goods.id
 User.id
 Quantity
 Status
+
+## API Paths
+1.Users
+* /users/login
+* /users/search
+* /users/update
+
+2.Goods
+* /goods/search
+* /goods/update
+
+3.Orders
+* /orders/search
+* /orders/update
+
+4.Damaged Good Fine
+* /damaged_goods/search
+* /damaged_goods/update
+
+5.Goods Issued
+* /goods_issued/search
+* /goods_issued/update
+
+6.Goods Requested
+* /goods_requested/search
+* /goods_requested/update
+
+
