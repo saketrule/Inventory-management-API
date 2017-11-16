@@ -18,26 +18,51 @@ API can be accessed from `https://host.com/api`. Data is sent and received in JS
 
 Fill this in. I tried, but I have no idea. Can be generous here, simple to add queries. I'll create the API and the SQL queries then.
 
-1. Inventory
+1. Users
+id pk
+username
+password
+phone
+email
+priviledge_level
 
-  a. Search
+2. Goods
+Id
+Name
+Sport Name
+Quantity total
+Quantity available  -- count of other table, if we can do
 
-  b. Add
+3. Orders
+Id
+Goods.id  -- Foreign key, assure relational integrity
+Quantity
+Suplier Name
+price/unit
+Total cost
+Date
 
-  c. Get
-a
-3. Borrowers
+4. Damaged Goods Fine
+Id
+User.id
+Goods.id
+Quantity damaged  -- subtract from tot, when creating
+Fine/unit
+Total Fine
+Payment status
 
-  a. List
+5. Goods Issued
+Id
+User.id
+Goods.id
+Quantity
+Date borrowed
+Return date
+Status
 
-  b. Search
-
-  c. List deadline extended
-
-4. Damaged?
-
-2. Retailers
-
-  a. Search
-
-  b. Add
+6. Goods requested
+Id
+Goods.id
+User.id
+Quantity
+Status

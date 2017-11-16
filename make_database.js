@@ -1,4 +1,9 @@
 
+
+
+
+//----***** NOTE: SET DEFAULT VALUES FOR DATABASE SCHEMAS
+
 // Configuration files
 var config = require('./config');
 
@@ -19,20 +24,65 @@ con.connect(function(err) {
 
 // Database table schemas:
 var schemas = [
-	[	"professor",
-	"id INT AUTO_INCREMENT PRIMARY KEY,"+
-	"name VARCHAR(30)"
-	],
-	[	"student",
-	"id INT AUTO_INCREMENT PRIMARY KEY,"+
-	"name VARCHAR(30)"
-	]
+	[ "Users",
+		"id INT AUTO_INCREMENT PRIMARY KEY,"+
+		"username VARCHAR(30),"+
+		"password VARCHAR(30),"+
+		"phone VARCHAR(30),"+
+		"email VARCHAR(30),"+
+		"priviledge_level INT"
+		],
+	[  "Goods",
+	       "id INT AUTO_INCREMENT PRIMARY KEY,"+
+	       "Name VARCHAR(30),"+
+	       "SportName VARCHAR(30),"+
+	       "Quantity_Total INT DEFAULT 0,"+
+	       "Quantity_available INT"
+       ],
+	[   "Orders",
+	       "id INT AUTO_INCREMENT PRIMARY KEY,"+
+         "GoodsId INT,"+
+	       "Quantity INT,"+
+	       "Supplier_Name VARCHAR(30),"+
+	       "PriceperUnit INT,"+
+	       "PurchaseDate VARCHAR(10),"+
+	       "FOREIGN KEY(GoodsId) references Goods(id)"
+	     ],
+	[   "Damaged_Goods",
+		"id INT AUTO_INCREMENT PRIMARY KEY,"+
+		"Quantity_Damaged INT,"+
+    "GoodsId INT,"+
+    "UserId INT,"+
+		"FineperUnit INT,"+
+		"Payment_Status INT,"+
+		"FOREIGN KEY(GoodsId) references Goods(id),"+
+		"FOREIGN KEY(UserId) references Users(id)"
+		],
+	[   "Goods_Issued",
+		"id INT AUTO_INCREMENT PRIMARY KEY,"+
+		"Quantity INT,"+
+    "GoodsId INT,"+
+    "UserId INT,"+
+		"FineperUnit INT,"+
+		"Payment_Status INT,"+
+		"FOREIGN KEY(GoodsId) references Goods(id),"+
+		"FOREIGN KEY(UserId) references Users(id)"
+		],
+  [ "Goods_requested",
+    "id INT AUTO_INCREMENT PRIMARY KEY,"+
+    "GoodsId INT,"+
+    "UserId INT,"+
+    "Quantity INT,"+
+    "Status INT,"+
+    "FOREIGN KEY(GoodsId) references Goods(id),"+
+		"FOREIGN KEY(UserId) references Users(id)"
+  ]
 ]
 
 // Create tables
 var create_tables = function(){
 	schemas.forEach(function(schema){
-		var command = "CREATE TABLE " +schema[0]+ " (" + schema[1] + ")";
+		var command = "CREATE TABLE IF NOT EXISTS " +schema[0]+ " (" + schema[1] + ")";
 		con.query(command, function (err, result) {
 	    if (err){
 	    	console.log("make_database_err: Cannot create Table schema - ");
@@ -70,5 +120,5 @@ var ask = function(command){
 	});
 };
 
-// create_tables()
-ask("SELECT * FROM customers");
+create_tables()
+//ask("SELECT * FROM customers");
