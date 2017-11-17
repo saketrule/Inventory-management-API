@@ -21,11 +21,11 @@ The database is stored in a MySQL server. The following descirbed database schem
 * Name
 * Sport Name
 * Quantity total
-* Quantity available  -- count of other table, if we can do
+* Quantity available
 
 3. Orders
 * Id
-* Goods.id  -- Foreign key, assure relational integrity
+* Goods.id  
 * Quantity
 * Supplier Name
 * Price/unit
@@ -36,7 +36,7 @@ The database is stored in a MySQL server. The following descirbed database schem
 * Id
 * User.id
 * Goods.id
-* Quantity damaged  -- subtract from tot, when creating
+* Quantity damaged 
 * Fine/unit
 * Total Fine
 * Payment status
