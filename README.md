@@ -18,53 +18,55 @@ API can be accessed from `https://host.com/api`. Data is sent and received in JS
 
 
 1. Users
-id pk
-username
-password
-phone
-email
-priviledge_level
+* id pk
+* username
+* password
+* phone
+* email
+* priviledge_level
 
 2. Goods
-Id
-Name
-Sport Name
-Quantity total
-Quantity available  -- count of other table, if we can do
+* Id
+* Name
+* Sport Name
+* Quantity total
+* Quantity available  -- count of other table, if we can do
 
 3. Orders
-Id
-Goods.id  -- Foreign key, assure relational integrity
-Quantity
-Suplier Name
-price/unit
-Total cost
-Date
+* Id
+* Goods.id  -- Foreign key, assure relational integrity
+* Quantity
+* Supplier Name
+* Price/unit
+* Total cost
+* Date
 
 4. Damaged Goods Fine
-Id
-User.id
-Goods.id
-Quantity damaged  -- subtract from tot, when creating
-Fine/unit
-Total Fine
-Payment status
+* Id
+* User.id
+* Goods.id
+* Quantity damaged  -- subtract from tot, when creating
+* Fine/unit
+* Total Fine
+* Payment status
 
 5. Goods Issued
-Id
-User.id
-Goods.id
-Quantity
-Date borrowed
-Return date
-Status
+* Id
+* User.id
+* Goods.id
+* Quantity
+* Date borrowed
+* Return date
+* Status
 
 6. Goods requested
-Id
-Goods.id
-User.id
-Quantity
-Status
+* Id
+* Goods.id
+* User.id
+* Quantity
+* Status
+
+![alt text](https://github.com/VinithKrishnan/Inventory-management-API/blob/master/Document%201.png)
 
 ## API Paths
 1.Users
