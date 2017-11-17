@@ -8,15 +8,6 @@ The core of the project is a general API ([see API documentation](###API-DOCUMEN
 
 ## Database design
 The database is stored in a MySQL server. The following descirbed database schema.
-i. People
-  Name ... Fill in
-
-
-## API Documentation
-
-API can be accessed from `https://host.com/api`. Data is sent and received in JSON format.
-
-
 1. Users
 * id pk
 * username
@@ -68,7 +59,15 @@ API can be accessed from `https://host.com/api`. Data is sent and received in JS
 
 ![alt text](https://github.com/VinithKrishnan/Inventory-management-API/blob/master/Document%201.png)
 
-## API Paths
+
+
+## API Documentation
+
+API can be accessed from `https://host.com/api`. Data is sent and received in JSON format.
+
+
+
+# Paths
 1.Users
 * /users/login
 * /users/search
