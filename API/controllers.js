@@ -48,6 +48,35 @@ exports.users_search = function(req,res){
   });
 };
 
+exports.users_update = function(req,res){
+  var q2 = req.body.username, q3 = req.body.password,q4=req.body.priveledge;
+  if(defined(q4)==false){
+    q4 = 0;
+  }
+  if(defined(q2)==false | defined(q3)==false){
+    res.status(404).send("Missing important parameters");
+  }
+  else{
+    var q1 = req.body.id;
+    var mysql;
+    if(defined(q1)==false){
+      var values = "'"+q2+"','"+q3+"',"+q4;
+      mysql = "INSERT INTO Users (username, password, priviledge_level) VALUES("+values+")";
+    }
+    else{
+      var values = "'"+q2+"','"+q3+"',"+q4;
+      mysql = "UPDATE Users SET username='"+q2+"', password='"+q3+"', priviledge_level="+q4+" WHERE id="+q1;
+    }
+    con.query(mysql,function(err,result){
+      if(err){
+        res.status(404).send("Database: Please correct query");
+        throw err;
+      }
+      res.json({"status":"Updated sucessfully"});
+  })
+}
+}
+
 // Goods
 exports.goods_search = function(req,res){
   var sqlcmd = "SELECT * FROM Orders WHERE 1 ";

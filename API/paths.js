@@ -13,9 +13,9 @@ module.exports = function(app){
   .post(mycontrollers.post_users_login);   //username, password => token if matched
   app.route('/users/search')
   .get(mycontrollers.users_search);   // username
-  // app.route('/users/update')
-  // .post(mycontrollers.users_update);
-  //
+  app.route('/users/update')        //
+  .post(mycontrollers.users_update);
+
    app.route('/goods/search')
    .get(mycontrollers.goods_search);  //
   // app.route('/goods/update')
