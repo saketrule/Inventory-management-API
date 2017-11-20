@@ -37,7 +37,8 @@ function orders_search_response() {
 	  }
   //orders_search();
 function show_orders_form(){
-	var form="<form id='display_order_search_form'>GoodsId<br><input type='text' name='goodsid' id='goodsid'>SupplierName<input type='text' name='suppliername' id='suppliername'><label onclick='orders_search()'>SUBMIT</label></form>";
+	alert("jhj");
+	var form="<center><h2> Search Orders </h2></center><form id='display_order_search_form'>GoodsId<br><input type='text' name='goodsid' id='goodsid'>SupplierName<input type='text' name='suppliername' id='suppliername'><label id='index_login_button' onclick='orders_search()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML = form;
 }
 function orders_search_response_table(json_string){
@@ -57,7 +58,7 @@ function orders_search_response_table(json_string){
 		table+="<tr>"+rows+"</tr>";
 	}
 	table+="</table>";
-	table+="<div id='orders_update_button'><button onclick='shift_show_update_form()'>UPDATE</button><div>";
+	table+="<div id='orders_update_button'><button id='index_login_button' onclick='shift_show_update_form()'>UPDATE</button><div>";
 	alert(table);
 	document.getElementById("mid-right").innerHTML=table;
 }
@@ -98,7 +99,7 @@ function orders_update_post() {
 
 
 function show_final_update_form(){
-	table="<form id='final_update_form'>ID<br><input type='text' name='id'>GoodsId<input type='text' name='goodsid'>Quantity<input type='text' name='quantity'>Supplier_Name<input type='text' name='suppliername'>PriceperUnit<input type='text' name='priceperunit'>PurchaseDate<input type='text' name='purchasedate'><label onclick='orders_update_post()'>SUBMIT</label></form>";
+	table="<center><h2>Update Form</h2></center><form id='final_update_form'>ID<br><input type='text' name='id'>GoodsId<input type='text' name='goodsid'>Quantity<input type='text' name='quantity'>Supplier_Name<input type='text' name='suppliername'>PriceperUnit<input type='text' name='priceperunit'>PurchaseDate<input type='text' name='purchasedate'><label id='index_login_button' onclick='orders_update_post()'>UPDATE</label></form>";
 	document.getElementById("mid").innerHTML=table;
 }
 function orders_update_response() {
