@@ -102,7 +102,7 @@ var addentry = function(table,schema,values){
     	console.log("make_database_err: Cannot insert into Table ");
     	console.log(table);
     	throw err;
-    }
+
     console.log(values +" sucessfully inserted");
   	});
 };

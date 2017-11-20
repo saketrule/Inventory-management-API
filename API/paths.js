@@ -18,8 +18,8 @@ module.exports = function(app){
 
    app.route('/goods/search')
    .get(mycontrollers.goods_search);  //
-  // app.route('/goods/update')
-  // .post(mycontrollers.goods_update);
+   app.route('/goods/update')
+   .post(mycontrollers.goods_update);
 
   // goodsid, suppliername
   app.route('/orders/search')
@@ -36,12 +36,12 @@ module.exports = function(app){
   // goodsid, userid
   app.route('/goods_issued/search')
    .get(mycontrollers.goods_issued_search);
-  // app.route('/goods_issued/update')
-  // .post(mycontrollers.goods_issued_update);
+   app.route('/goods_issued/update')
+   .post(mycontrollers.goods_issued_update);
   //
   app.route('/goods_requested/search')
   .get(mycontrollers.goods_requested_search);
-  // app.route('/goods_requested/update')
-  // .post(mycontrollers.goods_requested_update);
+  app.route('/goods_requested/update')
+   .post(mycontrollers.goods_requested_update);
 
 }
