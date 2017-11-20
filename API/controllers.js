@@ -114,6 +114,7 @@ exports.goods_search = function(req,res){
     }
     else{
       var q1 = req.body.id;
+      console.log(q1);
       var mysql;
       if(defined(q1)==false){
         var values = "'"+q2+"','"+q3+"',"+q4+","+q5;
@@ -124,11 +125,13 @@ exports.goods_search = function(req,res){
         mysql = "UPDATE Goods SET Name='"+q2+"', SportName='"+q3+"', Quantity_Total="+q4+",Quantity_available="+q5+" WHERE id="+q1;
       }
       con.query(mysql,function(err,result){
+        console.log(mysql);
         if(err){
           res.status(404).send("Database: Please correct query");
           throw err;
         }
         res.json({"status":"Updated sucessfully"});
+        console.log("done");
     })
   }
   }
