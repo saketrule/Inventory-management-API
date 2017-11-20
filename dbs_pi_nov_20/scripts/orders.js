@@ -2,7 +2,7 @@ var ip2 = "10.50.2.179:8081"
 function orders_search_response() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
+        //alert(httpRequest.responseText);
         orders_search_response_table(httpRequest.responseText);
       } else {
         alert('There was a problem with the request.');
@@ -37,7 +37,7 @@ function orders_search_response() {
 	  }
   //orders_search();
 function show_orders_form(){
-	alert("jhj");
+	//alert("jhj");
 	var form="<center><h2> Search Orders </h2></center><form id='display_order_search_form'>GoodsId<br><input type='text' name='goodsid' id='goodsid'>SupplierName<input type='text' name='suppliername' id='suppliername'><label id='index_login_button' onclick='orders_search()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML = form;
 }
@@ -59,7 +59,7 @@ function orders_search_response_table(json_string){
 	}
 	table+="</table>";
 	table+="<div id='orders_update_button'><button id='index_login_button' onclick='shift_show_update_form()'>UPDATE</button><div>";
-	alert(table);
+	//alert(table);
 	document.getElementById("mid-right").innerHTML=table;
 }
 function shift_show_update_form(){
@@ -88,7 +88,7 @@ function orders_update_post() {
       if(param.length>0){
       	param=param.substring(1,param.length);
       }
-      alert(param);
+      //alert(param);
 	  var request="http://"+ip2+"/orders/update";
 	   
 	  updateRequest.open('POST', request,true);
@@ -105,7 +105,7 @@ function show_final_update_form(){
 function orders_update_response() {
     if (updateRequest.readyState === XMLHttpRequest.DONE) {
       if (updateRequest.status === 200) {
-        alert(updateRequest.responseText);
+        alert("Update Successfull "+updateRequest.responseText);
         //orders_search_response_table(updateRequest.responseText);
       } else {
         alert('There was a problem with the request.');

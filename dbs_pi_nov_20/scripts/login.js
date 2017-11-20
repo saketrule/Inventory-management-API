@@ -1,10 +1,5 @@
 var ip2="http://10.50.2.179:8081";
-function login(){
-	var name=document.getElementById("id").value;
-	var password=document.getElementById("password").value;
-	alert(name);
-	alert(password);
-}
+
 function login_response() {
 	//alert("in login respons status : "+httpRequest.readyState);
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
@@ -34,8 +29,7 @@ function login_response() {
 	    else{
 	    	par="username="+name+"&password="+password;
 	    	var request=ip2+"/users/login";
-	    	alert(request);
-	    	alert(par);  
+	    	  
 	        httpRequest.open('POST', request,true);
 	        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	        httpRequest.send(par);

@@ -1,7 +1,8 @@
 var ip2 = "10.50.2.179:8081"
 
 function show_goods_form(){
-	var form="<h2> Search Inventory </h2><form id='display_goods_search_form'>Inventory Name<br><input type='text' name='name' id='g_name'>Sport<input type='text' name='sport' id='g_sport'><label onclick='goods_search()'>SUBMIT</label></form>";
+	//alert("dgjeh");
+	var form="<center><h2> Search Inventory </h2></center><form id='display_goods_search_form'>Inventory Name<br><input type='text' name='name' id='g_name'>Sport<input type='text' name='sport' id='g_sport'><label id='index_login_button' onclick='goods_search()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML = form;
 }
 
@@ -25,7 +26,7 @@ function show_goods_form(){
 	    	par = "?"+par.substr(1,par.length);
 	    }
 	    var request="http://"+ip2+"/goods/search"+par;
-	    alert(request);
+	    //alert(request);
 	    httpRequest.open('GET', request,true);
 	    httpRequest.send();
 	  }
@@ -33,7 +34,7 @@ function show_goods_form(){
 function goods_search_response() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
+        //alert(httpRequest.responseText);
         goods_search_response_table(httpRequest.responseText);
       } else {
         alert('There was a problem with the request.');
@@ -57,8 +58,8 @@ function goods_search_response_table(json_string){
 		table+="<tr>"+rows+"</tr>";
 	}
 	table+="</table>";
-	table+="<div id='goods_update_button'><button onclick='shift_goods_update_form()'>UPDATE</button><div>";
-	alert(table);
+	table+="<div id='goods_update_button'><button id='index_login_button' onclick='shift_goods_update_form()'>UPDATE</button><div>";
+	//alert(table);
 	document.getElementById("mid-right").innerHTML=table;
 }
 
@@ -69,13 +70,13 @@ function shift_goods_update_form(){
 }
 
 function show_goods_update_form(){
-	table="<h2>Update Inventory</h2><form id='goods_update_form'>ID<br><input type='text' name='id'>Inventory Name<input type='text' name='goodsname'>Sport<input type='text' name='sportname'>Total Total Units<input type='text' name='totalquantity'>Units Available<input type='text' name='availquantity'><label onclick='goods_update_post()'>SUBMIT</label></form>";
+	table="<center><h2>Update Inventory</h2></center><form id='goods_update_form'>ID<br><input type='text' name='id'>Inventory Name<input type='text' name='goodsname'>Sport<input type='text' name='sportname'>Total Total Units<input type='text' name='totalquantity'>Units Available<input type='text' name='availquantity'><label id='index_login_button' onclick='goods_update_post()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML=table;
 
 }
 
 function goods_update_post() {
-	alert("goods update called");
+	//alert("goods update called");
 	var updateRequest = new XMLHttpRequest();
     if (!updateRequest) {
       alert('Giving up :( Cannot create an XMLHTTP instance');
@@ -95,7 +96,7 @@ function goods_update_post() {
       if(param.length>0){
       	param=param.substring(1,param.length);
       }
-      alert(param);
+      //alert(param);
 	  var request="http://"+ip2+"/goods/update";
 	   
 	  updateRequest.open('POST', request,true);

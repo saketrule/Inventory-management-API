@@ -1,7 +1,8 @@
 var ip2 = "10.50.2.179:8081"
 
 function show_requests_form(){
-	var form="<form id='display_requests_search_form'>GoodsId<br><input type='text' name='goodsid' id='r_goodsid'>UserId<input type='text' name='userid' id='r_userid'><label onclick='requests_search()'>SUBMIT</label></form>";
+	//alert("jhii0");
+	var form="<center><h2>Request Search Form<h2></center><form id='display_requests_search_form'>GoodsId<br><input type='text' name='goodsid' id='r_goodsid'>UserId<input type='text' name='userid' id='r_userid'><label id='index_login_button' onclick='requests_search()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML = form;
 }
 
@@ -57,8 +58,8 @@ function requests_search_response_table(json_string){
 		table+="<tr>"+rows+"</tr>";
 	}
 	table+="</table>";
-	table+="<div id='requests_update_button'><button onclick='shift_requests_update_form()'>UPDATE</button><div>";
-	alert(table);
+	table+="<div id='requests_update_button'><button id='index_login_button' onclick='shift_requests_update_form()'>UPDATE</button><div>";
+	//alert(table);
 	document.getElementById("mid-right").innerHTML=table;
 }
 
@@ -69,7 +70,7 @@ function shift_requests_update_form(){
 }
 
 function show_requests_update_form(){
-	table="<h2>Update Goods Requested</h2><form id='requests_update_form'>ID<br><input type='text' name='id'>GoodsId<input type='text' name='goodsid'>UserId<input type='text' name='userid'>Quantity<input type='text' name='quantity'>Status<input type='text' name='status'><label onclick='requests_update_post()'>SUBMIT</label></form>";
+	table="<center><h2>Update Goods Requested</h2></center><form id='requests_update_form'>ID<br><input type='text' name='id'>GoodsId<input type='text' name='goodsid'>UserId<input type='text' name='userid'>Quantity<input type='text' name='quantity'>Status<input type='text' name='status'><label id='index_login_button' onclick='requests_update_post()'>SUBMIT</label></form>";
 	document.getElementById("mid").innerHTML=table;
 }
 
@@ -94,7 +95,7 @@ function requests_update_post() {
       if(param.length>0){
       	param=param.substring(1,param.length);
       }
-      alert(param);
+      //alert(param);
 	  var request="http://"+ip2+"/goods_requested/update";
 	   
 	  updateRequest.open('POST', request,true);
