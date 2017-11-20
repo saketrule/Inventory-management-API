@@ -58,7 +58,7 @@ function goods_search_response_table(json_string){
 	}
 	table+="</table>";
 	table+="<div id='goods_update_button'><button onclick='shift_goods_update_form()'>UPDATE</button><div>";
-	alert(table);
+	//alert(table);
 	document.getElementById("mid-right").innerHTML=table;
 }
 
@@ -95,7 +95,7 @@ function goods_update_post() {
       if(param.length>0){
       	param=param.substring(1,param.length);
       }
-      alert(param);
+      //alert(param);
 	  var request="http://"+ip2+"/goods/update";
 	   
 	  updateRequest.open('POST', request,true);
@@ -106,7 +106,7 @@ function goods_update_post() {
 function goods_update_response() {
     if (updateRequest.readyState === XMLHttpRequest.DONE) {
       if (updateRequest.status === 200) {
-      	alert("got response");
+      	//alert("got response");
         alert(updateRequest.responseText);
       } else {
         alert('There was a problem with the request.');

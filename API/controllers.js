@@ -195,10 +195,10 @@ console.log(sqlcmd);
            });
            throw err;
          }
-         console.log(sqlcmd,result);
-        res.json({
-          'Status': 'Accepted. New row inserted!'
+         console.log("orders_update"+sqlcmd,result);
+        res.json({'Status': 'Accepted. New row inserted!'
         });
+        console.log("sent back");
         });
       }
   };
