@@ -9,26 +9,29 @@ function orders_search_response() {
       }
     }
   }
-  function orders_search() {
+  function orders_search(blank) {
 	httpRequest = new XMLHttpRequest();
 	    if (!httpRequest) {
 	      alert('Giving up :( Cannot create an XMLHTTP instance');
 	      return false;
 	    }
 	    httpRequest.onreadystatechange = orders_search_response;
-	    var goodsid=document.getElementById("goodsid").value;
-	    var suppliername=document.getElementById("suppliername").value;
 	    var par="";
-	    if(goodsid.length>0){
-	    	par=par+"&goodsid="+goodsid;
-	    }
-	    if(suppliername.length>0){
-	    	par=par+"&suppliername="+suppliername;
-	    }
-	    if(par.length>0){
-	    	par = "?"+par.substr(1,par.length);
-	    	//alert("in if"+par);
-	    }
+	    if(blank!=1){
+	    	var goodsid=document.getElementById("goodsid").value;
+		    var suppliername=document.getElementById("suppliername").value;
+		    
+		    if(goodsid.length>0){
+		    	par=par+"&goodsid="+goodsid;
+		    }
+		    if(suppliername.length>0){
+		    	par=par+"&suppliername="+suppliername;
+		    }
+		    if(par.length>0){
+		    	par = "?"+par.substr(1,par.length);
+		    	//alert("in if"+par);
+		    }
+		}
 	    var request="http://"+ip2+"/orders/search"+par;
 	    //alert(request);
 	    httpRequest.open('GET', request,true);
@@ -69,12 +72,12 @@ function shift_show_update_form(){
 }
 function orders_update_post() {
 	
-	var updateRequest = new XMLHttpRequest();
-    if (!updateRequest) {
+	var httpRequest = new XMLHttpRequest();
+    if (!httpRequest) {
       alert('Giving up :( Cannot create an XMLHTTP instance');
       return false;
     }
-    updateRequest.onreadystatechange = orders_update_response;
+    httpRequest.onreadystatechange = orders_update_response;
     //geting elements from form
     var form_elements=document.getElementById("final_update_form");
     var param="";
@@ -91,10 +94,10 @@ function orders_update_post() {
       //alert(param);
 	  var request="http://"+ip2+"/orders/update";
 	   
-	  updateRequest.open('POST', request,true);
-	  updateRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  httpRequest.open('POST', request,true);
+	  httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	    // //httpRequest.open('GET', 'http://10.21.0.187:8081/orders/search',true);
-	    updateRequest.send(param);
+	    httpRequest.send(param);
 	  }
 
 
@@ -103,10 +106,11 @@ function show_final_update_form(){
 	document.getElementById("mid").innerHTML=table;
 }
 function orders_update_response() {
-    if (updateRequest.readyState === XMLHttpRequest.DONE) {
-      if (updateRequest.status === 200) {
-        alert("Update Successfull "+updateRequest.responseText);
-        //orders_search_response_table(updateRequest.responseText);
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    	//alert("orders_update_response");
+      if (httpRequest.status === 200) {
+        //alert(httpRequest.responseText);
+        orders_search(1);
       } else {
         alert('There was a problem with the request.');
       }

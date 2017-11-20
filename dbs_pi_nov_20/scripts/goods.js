@@ -107,7 +107,7 @@ function goods_update_post() {
 function goods_update_response() {
     if (updateRequest.readyState === XMLHttpRequest.DONE) {
       if (updateRequest.status === 200) {
-      	alert("got response");
+      	//alert("got response");
         alert(updateRequest.responseText);
       } else {
         alert('There was a problem with the request.');
